@@ -2,34 +2,42 @@ package com.cooksys.butterpillar.model;
 
 public class GrowthModel {
 
+	private double lengthToWingspan;
+	private double leavesEatenToWeight;
+
 	// any instance fields should be private
 
 	public double getLengthToWingspan() {
-		return 0; // to be implemented
+		return lengthToWingspan; // to be implemented
 	}
 
 	public void setLengthToWingspan(double lengthToWingspan) {
-		// to be implemented
+		this.lengthToWingspan = lengthToWingspan;// to be implemented
 	}
 
 	public double getLeavesEatenToWeight() {
-		return 0; // to be implemented
+		return leavesEatenToWeight; // to be implemented
 	}
 
 	public void setLeavesEatenToWeight(double leavesEatenToWeight) {
-		// to be implemented
+		this.leavesEatenToWeight = leavesEatenToWeight;// to be implemented
 	}
 
 	public Catterfly butterpillarToCatterfly(Butterpillar butterpillar) {
-		return null; // to be implemented
+		
+		return new Catterfly(butterpillar.getLength() * this.lengthToWingspan, butterpillar.getLeavesEaten() * this.leavesEatenToWeight); // to be implemented
 	}
 
 	public Butterpillar catterflyToButterpillar(Catterfly catterfly) {
-		return null; // to be implemented
+		return new Butterpillar(catterfly.getWingspan() / lengthToWingspan, catterfly.getWeight() / leavesEatenToWeight);
 	}
 	
 	public boolean equals(GrowthModel g) {
-		return false; // TODO: to be implemented
+		if((this.lengthToWingspan == g.lengthToWingspan) && (this.leavesEatenToWeight == g.leavesEatenToWeight)){
+			return true;
+		} else {
+			return false;
+		}// TODO: to be implemented
 	}
 	
 	@Override
